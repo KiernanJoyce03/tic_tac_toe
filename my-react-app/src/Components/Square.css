@@ -1,0 +1,14 @@
+.Square{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000000;
+
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    box-sizing: border-box;
+    font-size: 50px;
+}
+.Square:hover{
+    background: #d2d2d2;
+}

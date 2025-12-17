@@ -1,0 +1,32 @@
+import React from 'react'
+import { useState } from 'react'
+import './Users.css'
+
+const Users = ({user,playerTurn}) => {
+    const [isEditable, setIsEditable] = useState(false);
+    const [userName, setUserName] = useState(user);
+    
+
+    const handleEditClick = () => {
+        setIsEditable(true);
+    }
+    const handleChange = (e) => {
+        setUserName(e.target.value);
+    }
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            setIsEditable(false);
+        }
+    }
+
+  return (
+    <div className={playerTurn ? 'HighlightUser' : 'User'}>
+        <input className='user-input' type="text" value={userName} 
+            readOnly={!isEditable} onChange={handleChange} onKeyDown={handleKeyDown}/>
+        
+        <button className='edit-button' onClick={handleEditClick}>Edit</button>
+    </div>
+  )
+}
+
+export default Users

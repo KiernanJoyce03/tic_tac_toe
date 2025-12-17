@@ -1,0 +1,42 @@
+.Row{
+    display: flex;
+    margin: 0px;
+}
+
+.BoardWrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: white;
+}
+.Overlay{
+    position:absolute;
+    top: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 150px;
+    z-index: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    border: 1px solid #000;
+    background-color: #9b9b9b;
+    border-radius: 5px;
+    color:black
+
+}
+.BottomMessage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+}
+.Players{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    justify-content: center;
+}

@@ -1,0 +1,39 @@
+.user-input{
+    color: white;
+    background: black;
+    border: none;
+
+}
+
+.HighlightUser{
+    display:flex;
+    padding-bottom: 10px;
+    border: 1px solid #89a4fd;
+    border-radius: 5px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    
+}
+.User{
+    display:flex;
+    padding-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    
+}
+.edit-button{
+    color: #89a4fd;
+    padding: 0px 10px;
+    border: none;
+    background-color: transparent;
+}
+.edit-button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
