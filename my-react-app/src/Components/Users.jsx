@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import './Users.css'
 
-const Users = ({user,playerTurn}) => {
+const Users = ({userName,playerTurn, setUserName}) => {
     const [isEditable, setIsEditable] = useState(false);
-    const [userName, setUserName] = useState(user);
+    
     
 
     const handleEditClick = () => {

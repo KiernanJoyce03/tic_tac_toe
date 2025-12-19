@@ -15,6 +15,8 @@ const Board = ({ SquareComponent }) => {
     const [history, setHistory] = useState(Array(9).fill(null));
     const [count, setCount] = useState(0);
     const [playerTurn, setPlayerTurn] = useState(true);
+    const [player1Name, setPlayer1Name] = useState('Player O');
+    const [player2Name, setPlayer2Name] = useState('Player X');
     
 
     const boxClick = (i) => {
@@ -80,8 +82,8 @@ const Board = ({ SquareComponent }) => {
     return (
         <div>
             <div className='Players'>
-                <Users user='Player O' playerTurn={playerTurn} />
-                <Users user='Player X' playerTurn={!playerTurn} />
+                <Users userName={player1Name} playerTurn={playerTurn} setUserName={setPlayer1Name} />
+                <Users userName={player2Name} playerTurn={!playerTurn} setUserName={setPlayer2Name} />
             </div>
             <div className='BoardWrapper'>
                 <div className='Board'>
@@ -112,7 +114,7 @@ const Board = ({ SquareComponent }) => {
                         <p>Board is Full</p> 
                         <ResetButton onClick = {()=>handleReset()} />
                     </div>)
-                        : <p>Player {(turn + 1) % 2 === 1 ? 'o' : 'x'} Turn</p>)
+                        : <p>{playerTurn ? player1Name : player2Name} Turn</p>)
                     : (<div className='Overlay'>
                         <WinnerMessage winnerChar={(turn + 1) % 2 === 1 ? 'x' : 'o'} /> 
                         <ResetButton onClick = {() => handleReset()} />
