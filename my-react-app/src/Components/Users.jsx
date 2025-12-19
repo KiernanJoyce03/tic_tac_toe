@@ -18,11 +18,15 @@ const Users = ({userName,playerTurn, setUserName}) => {
             setIsEditable(false);
         }
     }
+    const handleBlur = () => {
+        setIsEditable(false);
+    }
 
   return (
     <div className={playerTurn ? 'HighlightUser' : 'User'}>
         <input className='user-input' type="text" value={userName} 
             readOnly={!isEditable} onChange={handleChange} onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             style={{border: isEditable ? '2px solid #89a4fd' : 'none',
                 borderRadius: '5px', outline: 'none', 
                 backgroundColor: isEditable ? '#232323ff' : 'transparent'
