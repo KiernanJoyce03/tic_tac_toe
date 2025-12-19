@@ -22,7 +22,10 @@ const Users = ({user,playerTurn}) => {
   return (
     <div className={playerTurn ? 'HighlightUser' : 'User'}>
         <input className='user-input' type="text" value={userName} 
-            readOnly={!isEditable} onChange={handleChange} onKeyDown={handleKeyDown}/>
+            readOnly={!isEditable} onChange={handleChange} onKeyDown={handleKeyDown}
+            style={{border: isEditable ? '2px solid #89a4fd' : 'none',
+                borderRadius: '5px', outline: 'none',
+            }}/>
         
         <button className='edit-button' onClick={handleEditClick}>Edit</button>
     </div>
