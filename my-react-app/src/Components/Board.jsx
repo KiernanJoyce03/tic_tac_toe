@@ -15,6 +15,7 @@ const Board = ({ SquareComponent }) => {
     const [history, setHistory] = useState(Array(9).fill(null));
     const [count, setCount] = useState(0);
     const [playerTurn, setPlayerTurn] = useState(true);
+    
 
     const boxClick = (i) => {
         if (ticTacArr[i] === null && !checkWinnerHelper()) {
@@ -83,32 +84,28 @@ const Board = ({ SquareComponent }) => {
                 <Users user='Player X' playerTurn={!playerTurn} />
             </div>
             <div className='BoardWrapper'>
-
                 <div className='Board'>
-
-                    <div className='Row'>
-                        <SquareComponent value={ticTacArr[0]} onClick={() => boxClick(0)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[1]} onClick={() => boxClick(1)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[2]} onClick={() => boxClick(2)} > </SquareComponent>
-                    </div>
-                    <div className='Row'>
-                        <SquareComponent value={ticTacArr[3]} onClick={() => boxClick(3)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[4]} onClick={() => boxClick(4)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[5]} onClick={() => boxClick(5)} > </SquareComponent>
-                    </div>
-                    <div className='Row'>
-                        <SquareComponent value={ticTacArr[6]} onClick={() => boxClick(6)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[7]} onClick={() => boxClick(7)} > </SquareComponent>
-                        <SquareComponent value={ticTacArr[8]} onClick={() => boxClick(8)} > </SquareComponent>
-                    </div>
-
+                    {[0,1,2].map(row => (
+                        <div className='Row' key ={row}>
+                            {[0,1,2].map(col=>{
+                                const index = row * 3 + col;
+                                return (
+                                    <SquareComponent key={index} value={ticTacArr[index]}
+                                        onClick={() => boxClick(index)} />
+                                );
+                            })}</div>
+                            ))}
+                
                 </div>
+
+               
                 <ol>
                     {history.map((item, index) => (
                         item === null ? null : <li key={index}>{item}</li>
                     ))}
                 </ol>
             </div>
+            
             <div className='BottomMessage'>
                 {!checkWinnerHelper() ?
                     (isFull() ? (<div className='Overlay'>

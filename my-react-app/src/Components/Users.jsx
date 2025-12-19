@@ -24,7 +24,8 @@ const Users = ({user,playerTurn}) => {
         <input className='user-input' type="text" value={userName} 
             readOnly={!isEditable} onChange={handleChange} onKeyDown={handleKeyDown}
             style={{border: isEditable ? '2px solid #89a4fd' : 'none',
-                borderRadius: '5px', outline: 'none',
+                borderRadius: '5px', outline: 'none', 
+                backgroundColor: isEditable ? '#232323ff' : 'transparent'
             }}/>
         
         <button className='edit-button' onClick={handleEditClick}>Edit</button>
